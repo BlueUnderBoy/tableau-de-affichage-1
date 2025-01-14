@@ -14,12 +14,16 @@ class BoardsController < ApplicationController
 
     @the_board = matching_boards.at(0)
 
+    matching_posts = Post.where({ :board_id => the_id })
+
+    @the_posts = matching_posts.at(0)
+
     render({ :template => "boards/show" })
   end
 
   def create
     the_board = Board.new
-    the_board.name = params.fetch("query_name")
+    the_board.name = params.fetch("name")
 
     if the_board.valid?
       the_board.save
@@ -33,7 +37,7 @@ class BoardsController < ApplicationController
     the_id = params.fetch("path_id")
     the_board = Board.where({ :id => the_id }).at(0)
 
-    the_board.name = params.fetch("query_name")
+    the_board.name = params.fetch("name")
 
     if the_board.valid?
       the_board.save

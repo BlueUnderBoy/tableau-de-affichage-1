@@ -4,7 +4,6 @@
       <%= @the_board.name %> details
     </h1>
 
-    <hr>
     <!--<div>
       <div>
         <a href="/boards">
@@ -67,7 +66,7 @@
 </form>
 
 
-<div>
+<!--<div>
   <div>
     <h2>
       Edit board
@@ -88,5 +87,27 @@
     </form>
   </div>
 </div>
+-->
 
 <hr>
+
+<h2>Active posts</h2>
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Posted on</th>
+      <th>Expires on</th>
+    </tr>
+
+    <% for x in @the_posts %> 
+      <tr>
+        <td><%= x.title %></td>
+        <td><%= x.body %></td>
+        <td><%= x.posted_on %></td>
+        <td><%= x.expires_on %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
