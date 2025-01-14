@@ -46,6 +46,26 @@
 
 <hr>
 
+<h2>Add a new post</h2>
+<form action="/insert_post" method="post">
+  <div>
+    <label for="title_field">Title</label>
+    <input id="title_field" type="text" name="title">
+  </div>
+
+  <div>
+    <label for="body_field">Body</label>
+    <textarea name="body" id="" cols="30" rows="10"></textarea>
+  </div>
+
+  <div>
+    <label for="expires_on_field">Expires on</label>
+    <input type="date" id="expires_on_field" name="expires_on">
+  </div>
+
+  <button>Add post</button>
+</form>
+
 
 <div>
   <div>
