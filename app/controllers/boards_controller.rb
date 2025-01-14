@@ -12,11 +12,13 @@ class BoardsController < ApplicationController
 
     matching_boards = Board.where({ :id => the_id })
 
+    @today = Date.today
+
     @the_board = matching_boards.at(0)
 
     matching_posts = Post.where({ :board_id => the_id })
 
-    @the_posts = matching_posts.at(0)
+    @the_posts = matching_posts
 
     render({ :template => "boards/show" })
   end

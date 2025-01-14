@@ -54,7 +54,7 @@
 
   <div>
     <label for="body_field">Body</label>
-    <textarea name="body" id="" cols="30" rows="10"></textarea>
+    <textarea name="body" id="body" cols="30" rows="10"></textarea>
   </div>
 
   <div>
@@ -101,13 +101,38 @@
       <th>Expires on</th>
     </tr>
 
-    <% for x in @the_posts %> 
-      <tr>
-        <td><%= x.title %></td>
-        <td><%= x.body %></td>
-        <td><%= x.posted_on %></td>
-        <td><%= x.expires_on %></td>
-      </tr>
+    <% for x in @the_posts %>
+      <% if x.expires_on > @today %> 
+        <tr>
+          <td><%= x.title %></td>
+          <td><%= x.body %></td>
+          <td><%= x.created_at %></td>
+          <td><%= x.expires_on %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Expired posts</h2>
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Posted on</th>
+      <th>Expires on</th>
+    </tr>
+
+    <% for x in @the_posts %>
+      <% if x.expires_on < @today %> 
+        <tr>
+          <td><%= x.title %></td>
+          <td><%= x.body %></td>
+          <td><%= x.created_at %></td>
+          <td><%= x.expires_on %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
