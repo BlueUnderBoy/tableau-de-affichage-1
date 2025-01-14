@@ -1,10 +1,11 @@
 <div>
   <div>
     <h1>
-      Board #<%= @the_board.id %> details
+      <%= @the_board.name %> details
     </h1>
 
-    <div>
+    <hr>
+    <!--<div>
       <div>
         <a href="/boards">
           Go back
@@ -16,9 +17,9 @@
           Delete board
         </a>
       </div>
-    </div>
+    </div>-->
 
-    <dl>
+    <!--<dl>
       <dt>
         Name
       </dt>
@@ -39,7 +40,7 @@
       <dd>
         <%= time_ago_in_words(@the_board.updated_at) %> ago
       </dd>
-    </dl>
+    </dl>-->
   </div>
 </div>
 
