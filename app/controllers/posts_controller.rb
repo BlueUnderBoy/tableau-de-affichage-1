@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     the_post.expires_on = params.fetch("expires_on")
     the_post.board_id = params.fetch("board_id")
 
-    if the_post.valid?
+    if the_post.valid? && the_post.body.present?
       the_post.save
       redirect_to("/posts", { :notice => "Post created successfully." })
     else
