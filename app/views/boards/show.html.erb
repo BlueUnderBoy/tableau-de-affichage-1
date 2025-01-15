@@ -108,8 +108,8 @@
         <tr>
           <td><%= x.title %></td>
           <td><%= x.body %></td>
-          <td><%= x.created_at %></td>
-          <td><%= x.expires_on %></td>
+          <td><%= x.created_at.strftime("%b %e, %Y") %></td>
+          <td><%= x.expires_on.strftime("%b %e, %Y") %></td>
         </tr>
       <% end %>
     <% end %>
